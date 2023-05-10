@@ -1,0 +1,25 @@
+﻿@model HomeViewModel
+
+
+
+<body style="background-color:#808080;"></body>
+<h1>Favorite books</h1>
+<div class="row mt-5 mb-2">
+
+	@foreach (Book book in Model.favBooks)
+	{
+
+		<div class="col-lg-4">
+			<img class="img-thumbnail" src="@book.img" alt="@book.name" />
+			<h2>@book.name</h2>
+			<p>@book.shortDesc</p>
+			<p>Price: @book.price.ToString("c")</p>
+			<p><a class="btn btn-warning" asp-controller="ShopCart" asp-action="addToCart" asp-route-id="@book.id">Add to shopcart</a></p>
+		</div>
+
+
+		//Html.Partial("AllBooks", book);
+		//await Html.PartialAsync("AllBooks", book);
+	}
+
+</div>
